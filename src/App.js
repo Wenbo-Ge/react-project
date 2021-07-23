@@ -1,12 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+/**
+ * This App.js file contains routing set up for different pages in website.
+ */
 
-function App() {
-  return (
-    <div className="App">
-      <div>Hello World</div>
-    </div>
-  );
-}
-
-export default App;
+ import React from "react";
+ import { Switch, Route } from 'react-router-dom';
+ 
+ 
+ import VirtualMicrobit from "./pages/VirtualMicrobit";
+ 
+ import "./App.css";
+ 
+ const App = () => {
+   return (
+     <div className="App">
+       <VirtualMicrobit />
+     </div>
+   );
+ };
+ 
+ export default App;
+ 

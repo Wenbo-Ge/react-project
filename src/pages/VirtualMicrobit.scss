@@ -1,0 +1,187 @@
+.IconPage {
+    width: 100%;
+    height: auto;
+  
+    &-content {
+        padding-top: 550px;
+        align-items: center;
+        text-align: left;
+    
+        .container {
+          padding: 0 20px;
+          max-width: 630px;
+    
+          button {
+            margin-left: 100px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+  }
+  
+  ol, ul {
+    padding-left: 30px;
+  }
+  
+  .board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  
+  .status {
+    padding: 15px;
+  }
+  
+  .square {
+  cursor:pointer;
+  display: inline-block;
+  margin: 10px;
+  height: 17px;
+  padding: 4px;
+  border: none;
+  background-color: rgb(73, 71, 71);
+  }
+  
+  .on {
+    cursor:pointer;
+    display: inline-block;
+    margin: 10px;
+    height: 17px;
+    padding: 4px;
+    border: none;
+    background-color: rgb(255, 127, 127);
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #cc4b10 0 -1px 9px, #ff0022 0 2px 12px;
+  }
+  .square:focus {
+    outline: none;
+  }
+  
+  .kbd-navigation .square:focus {
+    background: #ddd;
+  }
+  
+  .game {
+    display: inline-flex;
+    flex-direction: row;
+  }
+  
+  .game-info {
+    margin: 85px 0 0 0;
+    width: 400px;
+    text-align: left;
+    position: relative;
+    left: 15%
+  }
+  
+  .ledBackground {
+    background-color: #111;
+    display: inline-block;
+    width: 360px;
+    border-radius: 10px 10px 18px 18px;
+  }
+  
+  .ledTitle {
+    display: flex;
+  }
+  
+  .leftCornor {
+    background-image: url("../assets/images/left_cornor.png");
+    background-size: inherit;
+    height: 75px;
+    width: 140px;
+    border-radius: 10px 0 0 0;
+  }
+  
+  .midIcon {
+    background-image: url("../assets/images/microbit-icon.png");
+    background-size: inherit;
+    height: 40px;
+    width: 73px;
+    margin-top: 30px;
+  
+  }
+  
+  .ledFooter {
+    background-image: url("../assets/images/microbit-icon-board.png");
+    height: 68px;
+    background-size: cover;
+    border-radius: 0 0 18px 18px;
+  }
+  
+  .ledPane {
+    display: flex;
+  }
+  
+  .leftPane {
+    width: 25%;
+  }
+  
+  .leftButton{
+    width: 65px;
+    background-image: url("../assets/images/left_button.png");
+    height: 78px;
+    background-size: inherit;
+    margin: 50px auto;
+  }
+  
+  .midPane {
+    width: 50%;
+  }
+  
+  .rightPane {
+    width: 25%;
+  }
+  
+  .rightButton{
+    width: 61px;
+    background-image: url("../assets/images/right_button.png");
+    height: 80px;
+    background-size: inherit;
+    margin: 20px auto;
+  }
+  
+  .nameField {
+    margin: 10px;
+  }
+  
+  .ledControll input{
+  margin: 5px;
+  color: #fff ;
+  background-color: #000;
+  border: none;
+  stroke: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  }
+  
+  .searchControll input{
+    margin: 5px;
+    color: #fff ;
+    background-color: #000;
+    border: none;
+    stroke: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    }
+  
+    input:disabled {
+    margin: 5px;
+    color: rgba(34, 33, 33, 0.747) ;
+    background-color: rgb(221, 215, 215);
+    border: none;
+    stroke: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    }
+  
+    .allNamesListOff {
+      display: none !important;
+    }
+  
+    .allNamesListOn {
+      display: inline-flex;
+    }
