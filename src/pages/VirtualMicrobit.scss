@@ -179,9 +179,17 @@
     }
   
     .allNamesListOff {
-      display: none !important;
+      display: none;
     }
   
     .allNamesListOn {
-      display: inline-flex;
+      display: block;
+    }
+  
+    .singleNameListOn {
+      display: block;
+    }
+  
+    .singleNameListOff {
+      display: none;
     }

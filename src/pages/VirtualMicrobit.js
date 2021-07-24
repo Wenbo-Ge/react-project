@@ -11,10 +11,8 @@ import {uBit} from "../microBit";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import RefreshIcon from '@material-ui/icons/Refresh';
+import MenuItem from '@material-ui/core/MenuItem';
 
 
 
@@ -31,9 +29,8 @@ class Board extends React.Component {
         submitControll: false,
         microBit: new uBit(),
         connectionStatus: false,
-        selectValue: '',
         iconFetchAll: ['Names'],
-        selectOptions: "allNamesListOff"
+        selectOptions: ["singleNameListOn", "allNamesListOff"]
       };
     }
 
@@ -144,7 +141,8 @@ class Board extends React.Component {
         nameArray.push(doc.id))
     this.setState({
       iconFetchAll: nameArray,
-      selectOptions: "allNamesListOn"
+      displayControll: false,
+      selectOptions: ["singleNameListOff", "allNamesListOn"]
     })
     // console.log(this.state.iconFetchAll)
   }).catch((error) => {
@@ -250,12 +248,6 @@ class Board extends React.Component {
     
   }
   
-  setSelectValue (event) {
-    this.setState({
-      selectValue: event.target.value,
-      search: event.target.value
-  })
-  }
 
   render() {
     const status = 'micro:bit Icons';
@@ -343,13 +335,37 @@ class Board extends React.Component {
               <input type="button" value = "VALIDATE" onClick={() => this.checkIcon()} disabled={this.state.name === ""}></input>
             </div>
         </form>
-        <form validate="true" autoComplete="off" onSubmit={(event) => this.fetchIcon(event)} >
+        <form className={this.state.selectOptions[0]} validate="true" autoComplete="off" onSubmit={(event) => this.fetchIcon(event)} >
             <TextField id="standard-basic-search" label="Search" required onChange={(event) => this.setSearch(event)} style={{
                     margin: '15px auto',
                     display: 'inline-flex',
                     width: '145px'
-                    }}
-                    value={this.state.selectValue}/>
+                    }}/>
+
+            <div className="searchControll">
+            <input type="submit" value = "FETCH"></input>
+            <input type="button" value = "DISPLAY" disabled={!this.state.displayControll} onClick={() => this.displayIcon()}></input>
+            </div>
+            
+        </form>
+
+        <form className={this.state.selectOptions[1]} validate="true" autoComplete="off" onSubmit={(event) => this.fetchIcon(event)} >
+            <TextField
+              id="standard-select-currency"
+              select
+              label="Search"
+              onChange={(event) => this.setSearch(event)}
+              style={{
+                margin: '15px auto',
+                display: 'inline-flex',
+                width: '145px'
+                }} >
+              {this.state.iconFetchAll.map((name, key) => (
+                  <MenuItem key={key} value={name}>
+                    {name}
+                  </MenuItem>
+                ))}
+            </TextField>
 
             <div className="searchControll">
             <input type="submit" value = "FETCH"></input>
@@ -361,26 +377,6 @@ class Board extends React.Component {
               <p>Click <IconButton color="secondary" aria-label="add an alarm" onClick={(event) => this.fetchIconAll(event)}>
                 <RefreshIcon/>
               </IconButton>  to see all icons in database</p>
-
-            <FormControl className={this.state.selectOptions} style={{width: '87%'}}>
-              <InputLabel shrink htmlFor="select-multiple-native">
-                Icon List
-              </InputLabel>
-              <Select
-                multiple 
-                native
-                onChange={(event) => this.setSelectValue(event)}
-                inputProps={{
-                  id: 'select-multiple-native',
-                }}
-              >
-                {this.state.iconFetchAll.map((name, key) => (
-                  <option key={key} value={name}>
-                    {name}
-                  </option>
-                ))}
-              </Select>
-            </FormControl>
         </div>
         
       </div>
