@@ -11,7 +11,7 @@ import {uBit} from "../microBit";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import RefreshIcon from '@material-ui/icons/Refresh';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 import MenuItem from '@material-ui/core/MenuItem';
 
 
@@ -27,6 +27,7 @@ class Board extends React.Component {
         search: null,
         displayControll: false,
         submitControll: false,
+        fetchControll: true,
         microBit: new uBit(),
         connectionStatus: false,
         iconFetchAll: ['Names'],
@@ -91,7 +92,8 @@ class Board extends React.Component {
 
   setSearch(event){
     this.setState({
-        search: event.target.value
+        search: event.target.value,
+        fetchControll: true
     })
 }
 
@@ -142,7 +144,8 @@ class Board extends React.Component {
     this.setState({
       iconFetchAll: nameArray,
       displayControll: false,
-      selectOptions: ["singleNameListOff", "allNamesListOn"]
+      selectOptions: ["singleNameListOff", "allNamesListOn"],
+      fetchControll: false
     })
     // console.log(this.state.iconFetchAll)
   }).catch((error) => {
@@ -339,8 +342,11 @@ class Board extends React.Component {
             <TextField id="standard-basic-search" label="Search" required onChange={(event) => this.setSearch(event)} style={{
                     margin: '15px auto',
                     display: 'inline-flex',
-                    width: '145px'
+                    width: '85px'
                     }}/>
+            <IconButton color="secondary" aria-label="add an alarm" onClick={(event) => this.fetchIconAll(event)} style={{top:"25px"}}>
+                <VisibilityIcon/>
+            </IconButton>        
 
             <div className="searchControll">
             <input type="submit" value = "FETCH"></input>
@@ -368,16 +374,11 @@ class Board extends React.Component {
             </TextField>
 
             <div className="searchControll">
-            <input type="submit" value = "FETCH"></input>
+            <input type="submit" value = "FETCH" disabled={!this.state.fetchControll}></input>
             <input type="button" value = "DISPLAY" disabled={!this.state.displayControll} onClick={() => this.displayIcon()}></input>
             </div>
             
         </form>
-        <div className="getAllIcons">
-              <p>Click <IconButton color="secondary" aria-label="add an alarm" onClick={(event) => this.fetchIconAll(event)}>
-                <RefreshIcon/>
-              </IconButton>  to see all icons in database</p>
-        </div>
         
       </div>
     );
@@ -412,6 +413,7 @@ const VirtualMicrobit = () => {
                     <Typography variant="body2" component="p">
                       Option 3: You can search icon in the database by names. Type a name and click SEARCH button.  
                       If icon you want to search exists, then click DISPLAY button. Icon will be rendered to virtual pane.
+                      <p>*Click   <VisibilityIcon/>   to view all icon names in database.</p>
                     </Typography>
                     <br />
                     <Typography variant="body2" component="p">
