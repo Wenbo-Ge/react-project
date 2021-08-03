@@ -401,28 +401,28 @@ const VirtualMicrobit = () => {
                     <Typography variant="h5" component="h2" gutterBottom>
                       Tutorial of This Web Page
                     </Typography>
-                    <Typography variant="body2" component="p">
+                    <Typography variant="body2" component="span">
                       Option 1: Click these squares to draw any icons you like. You can reset virtual pane by clicking <HighlightOffIcon/> icon
                     </Typography>
                     <br />
-                    <Typography variant="body2" component="p">
+                    <Typography variant="body2" component="span">
                       Option 2: If you are satisfied with the icon you drew, you can save your icon to database. 
                       Before saving your icon, give a name and click VALIDATE button (name must be unique in database), then you can click SAVE button.
                     </Typography>
                     <br />
-                    <Typography variant="body2" component="p">
+                    <Typography variant="body2" component="span">
                       Option 3: You can search icon in the database by names. Type a name and click SEARCH button.  
                       If icon you want to search exists, then click DISPLAY button. Icon will be rendered to virtual pane.
                       <p>*Click   <VisibilityIcon/>   to view all icon names in database.</p>
                     </Typography>
                     <br />
-                    <Typography variant="body2" component="p">
+                    <Typography variant="body2" component="span">
                       Option 4: You can also download icon showed in virtual pane to real micro:bit device.
                       To do so, first need to pair your micro:bit device by clicking <BluetoothSearchingIcon/> icon. 
                       Once device is paired, click <ImportantDevicesIcon/> icon to light up icon from virtual pane to your real micro:bit device.
                     </Typography>
                     <br />
-                    <Typography variant="body2" component="p">
+                    <Typography variant="body2" component="span">
                       <b>Important Note:</b> Before pairing the device, download and upload this <a href="https://drive.google.com/uc?id=0B2Ud_NaMFsQSdm1BMVMtN3F4a3c&export=download">firmware</a> on your BBC micro:bit board.
                     </Typography>
                   </CardContent>

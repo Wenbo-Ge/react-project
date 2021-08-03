@@ -3,18 +3,26 @@
  */
 
  import React from "react";
- import { Switch, Route } from 'react-router-dom';
+ import { BrowserRouter, Route, Switch } from 'react-router-dom';
  
  
  import VirtualMicrobit from "./pages/VirtualMicrobit";
+ import Game from './pages/Game';
+ import Navigation from './pages/Navigation';
  
  import "./App.css";
  
  const App = () => {
    return (
-     <div className="App">
-       <VirtualMicrobit />
-     </div>
+            <BrowserRouter>
+            <div className="App">
+              <Navigation />
+                <Switch>
+                 <Route path="/react-project" component={VirtualMicrobit} exact/>
+                 <Route path="/game" component={Game}/>
+               </Switch>
+            </div> 
+          </BrowserRouter>
    );
  };
  

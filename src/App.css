@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  padding: 75px 0;
+  padding: 0 0 125px 0;
   background-image: linear-gradient(122deg,#00c800 -3%,#3eb6fd 49%);
   height: 90vh;
 }
